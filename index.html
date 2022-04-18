@@ -4,13 +4,76 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Sign Up</title>
 </head>
 <body>
-  
+  <!-- Hero secttion: logo and bg gradident-->
+  <div class="hero">
+    <h1 class="logo">Foxy</h1>
+  </div>
 
+  <section>
+    <p class="get-started">
+      This is not a real online service! You know you need something like this in your life to 
+      help you realize you deepest dreams.
+      <br>
+      <br>
+      You know you want to.
+    </p>
 
+    <!-- h1 and main form -->
+    <main>
+      <h1>Let's do this!</h1>
+      <form action="" id="form">
+        <div class="field">
+          <label for="fname">First Name<abbr title="This field is required" aria-label="requied first name">*</abbr></label>
+          <input type="text" id="fname" name="fname" required aria-required="true">
+        </div>
+        <div class="field">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname">
+        </div>
+        <div class="field">
+          <label for="email">Email<abbr title="This field is required" aria-label="requied email">*</abbr></label>
+          <input type="email" id="email" name="mail" required aria-required="true">
+        </div>
+        <div class="field">
+          <label for="tele">Phone Number<abbr title="This field is required" aria-label="requied phone number">*</abbr></label>
+          <input type="tel" id="tele" name="phone">
+        </div>
+        <div class="field">
+          <label for="password">Password<abbr title="This field is required" aria-label="requied password">*</abbr></label>
+          <input type="password" id="password" name="password" minlength="8" maxlength="16" placeholder="Must contain 8-16 characters" required aria-required="true">
+        </div>
+        <div class="field">
+          <label for="cpassword">Confirm Password<abbr title="This field is required" aria-label="requied password">*</abbr></label>
+          <input type="password" id="cpassword" name="cpassword" minlength="8" maxlength="16" required>
+          <div class="error"></div>
+        </div>
+      </form>
+    </main>
 
-  <!-- Photo by <a href="https://unsplash.com/@joaccord?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joshua Oluwagbemiga</a> on <a href="https://unsplash.com/s/photos/wavy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
+    <button class="create-account" form="form" type="submit">Create Account</button>  
+    <p>Already have an account? <a class="login" href="#">Log in</a></p>
+    </div>
+  </section>
+
+  <script>
+    const password = document.getElementById('password')
+    const cpassword = document.getElementById('cpassword')
+    const errorMsg = document.querySelector('.error')
+
+    cpassword.addEventListener('input', () => showErrorMsg(errorMsg, password, cpassword))
+
+    password.addEventListener('input', () => showErrorMsg(errorMsg, password, cpassword))
+
+    function showErrorMsg(errorEl, pass, cpass) {
+      rawPass = pass.value
+      rawCpass = cpass.value
+
+      errorEl.textContent = rawCpass !== rawPass ? 'Passwords do not match' : ''
+    }
+  </script>
 </body>
 </html>
